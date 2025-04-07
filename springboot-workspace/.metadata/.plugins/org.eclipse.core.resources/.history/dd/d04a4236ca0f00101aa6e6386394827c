@@ -1,0 +1,5 @@
+package com.seth.www.controller;
+
+public abstract class EmployeeController {
+
+}

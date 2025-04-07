@@ -1,0 +1,33 @@
+package com.seth.www.service;
+
+import java.util.List;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+import org.springframework.web.bind.annotation.PathVariable;
+
+import com.seth.www.model.Employee;
+import com.seth.www.repo.EmployeeRepository;
+
+@Service
+public class EmployeeService 
+{
+	@Autowired
+	EmployeeRepository employeeRepository;
+	
+	public List<Employee> getAllEmployees()
+	{
+		return employeeRepository.findAll();
+	}
+	
+	public Employee createEmployee(Employee employee)
+	{
+		return employeeRepository.save(employee);
+	}
+	
+	public Employee getEmployeeById(long id)
+	{
+		return employeeRepository.findById(id).orElseThrow(()-> new ResourceNotFoundException("Id does not Exist"));
+	}
+	
+}

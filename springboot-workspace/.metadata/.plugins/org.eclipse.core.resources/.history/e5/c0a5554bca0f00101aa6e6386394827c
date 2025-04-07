@@ -1,0 +1,7 @@
+package com.seth.www.controller;
+
+@RestController
+public class EmployeeController 
+{
+
+}
